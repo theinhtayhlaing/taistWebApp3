@@ -34,32 +34,14 @@
   document.addEventListener('init', function(event) {
   var page = event.target;
 
-    function showPosition(position) {
-     page.querySelector('#latlng').innerHTML = "Latitude:" + position.coords.latitude + "<br>Longitude:" + position.coords.longitude;
-     const Url = 'https://theinhtay-taist-demo.firebaseio.com/logs.jason';
-     let Data = {
-       latitude:position.coords.latitude,
-       longgitude:position.coords.longitude
-   };
-     const Params = {
-       headers:{
-         'Content-Type':'application/json'
-       },
-       body:JSON.stringify(Data),
-       method:'Post'
-     };
-     console.log(JSON.stringify(Data));
-     fetch(Url,Params).then(data=>{return data.json();}).then(res=>{console.log(res);});
-   }
   if (page.id === 'page1') {
     page.querySelector('#push-button').onclick = function() {
       document.querySelector('#myNavigator').pushPage('page2.html', {data: {title: 'Page 2'}});
     };
   } else if (page.id === 'page2') {
     page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
-    navigator.geolocation.getCurrentPosition(showPosition);
   }
-}); 
+});
 </script> 
 </body>
 </html>
