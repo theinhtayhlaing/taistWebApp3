@@ -36,8 +36,8 @@
 
    function showPosition(position) {
      page.querySelector('#latlng').innerHTML = "Latitude:" + position.coords.latitude + "<br>Longitude:" + position.coords.longitude;
+   } 
      
-   }
   if (page.id === 'page1') {
     page.querySelector('#push-button').onclick = function() {
       document.querySelector('#myNavigator').pushPage('page2.html', {data: {title: 'Page 2'}});
